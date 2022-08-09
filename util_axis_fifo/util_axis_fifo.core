@@ -1,0 +1,28 @@
+CAPI=2:
+
+name: AFRL:buffer:util_axis_fifo:1.0.0
+description: A standard dual clock axis fifo, uses util_fifo has its internals.
+
+filesets:
+  src:
+    files:
+      - src/util_axis_fifo.v
+      - src/util_axis_fifo_ctrl.v
+    file_type: verilogSource
+    depend:
+      - AFRL:buffer:util_fifo
+  
+  tb:
+    files:
+      - tb/tb_fifo.v
+    file_type: verilogSource
+    
+targets:
+  default:
+    filesets: [src]
+  
+  sim:
+    default_tool: icarus
+    filesets: [src, tb]
+    toplevel: tb_fifo
+    
