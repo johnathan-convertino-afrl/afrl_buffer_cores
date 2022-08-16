@@ -1,16 +1,18 @@
 CAPI=2:
 
-name: AFRL:buffer:util_fifo:1.0.0
+name: AFRL:buffer:fifo:1.0.0
 description: A standard dual clock fifo that mimicks the Xilinx FIFO behavior (v2018.3).
 
 filesets:
   src:
     files:
-      - src/util_fifo.v
-      - src/util_fifo_ctrl.v
-      - src/util_fifo_mem.v
-      - src/util_fifo_pipe.v
+      - src/fifo.v
+      - src/fifo_ctrl.v
+      - src/fifo_mem.v
+      - src/fifo_pipe.v
     file_type: verilogSource
+    depend:
+      - AFRL:utility:util_helper:1.0.0
   
   tb:
     files:

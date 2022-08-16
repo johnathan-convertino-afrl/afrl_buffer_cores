@@ -28,7 +28,7 @@ module tb_fifo;
   localparam RST_PERIOD = 1000;
   
 // FIFO that emulates Xilinx FIFO.
-  util_fifo #(
+  fifo #(
     .FIFO_DEPTH(256),
     .BYTE_WIDTH(1),
     .COUNT_WIDTH(8),

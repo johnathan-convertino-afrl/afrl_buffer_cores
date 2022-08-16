@@ -1,6 +1,6 @@
 // ***************************************************************************
 // ***************************************************************************
-// @FILE    util_fifo.v
+// @FILE    fifo.v
 // @AUTHOR  JAY CONVERTINO
 // @DATE    2021.06.29
 // @BRIEF   Wrapper to tie together fifo_ctrl, fifo_mem, and fifo_pipe.
@@ -30,8 +30,10 @@
 
 `timescale 1ns/100ps
 
+`include util_helper_math.vh
+
 // FIFO that emulates Xilinx FIFO.
-module util_fifo #(
+module fifo #(
     parameter FIFO_DEPTH    = 256,
     parameter BYTE_WIDTH    = 1,
     parameter COUNT_WIDTH   = 8,
@@ -90,7 +92,7 @@ module util_fifo #(
   wire [COUNT_WIDTH:0] s_data_count;
 
   // Pipe for data sync/clock issues.
-  util_fifo_pipe #(
+  fifo_pipe #(
     .RD_SYNC_DEPTH(RD_SYNC_DEPTH),
     .WR_SYNC_DEPTH(WR_SYNC_DEPTH),
     .DC_SYNC_DEPTH(DC_SYNC_DEPTH),
@@ -128,7 +130,7 @@ module util_fifo #(
   );
 
   // Control for memory.
-  util_fifo_ctrl #(
+  fifo_ctrl #(
     .FIFO_DEPTH(c_FIFO_DEPTH),
     .BYTE_WIDTH(BYTE_WIDTH),
     .ADDR_WIDTH(c_PWR_FIFO),
@@ -161,7 +163,7 @@ module util_fifo #(
   );
 
   // Memory for storage.
-  util_fifo_mem #(
+  fifo_mem #(
     .FIFO_DEPTH(c_FIFO_DEPTH),
     .BYTE_WIDTH(BYTE_WIDTH),
     .ADDR_WIDTH(c_PWR_FIFO),
@@ -180,16 +182,5 @@ module util_fifo #(
     .wr_data(s_wr_data),
     .wr_addr(s_wr_addr)
   );
-              
-  //copied from the IEEE 1364-2001 Standard
-  function integer clogb2;
-    input [31:0] value;
-    begin
-        value = value - 1;
-        for (clogb2 = 0; value > 0; clogb2 = clogb2 + 1) begin
-            value = value >> 1;
-        end
-    end
-  endfunction
 
 endmodule

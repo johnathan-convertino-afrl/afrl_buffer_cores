@@ -1,6 +1,6 @@
 // ***************************************************************************
 // ***************************************************************************
-// @FILE    util_fifo_ctrl.v
+// @FILE    fifo_ctrl.v
 // @AUTHOR  JAY CONVERTINO
 // @DATE    2021.06.29
 // @BRIEF   Control block for fifo operations, emulates xilinx fifo.
@@ -31,7 +31,7 @@
 `timescale 1ns/100ps
 
 // FIFO entity
-module util_fifo_ctrl #(
+module fifo_ctrl #(
     parameter FIFO_DEPTH = 256,
     parameter BYTE_WIDTH = 1,
     parameter ADDR_WIDTH = 1,
