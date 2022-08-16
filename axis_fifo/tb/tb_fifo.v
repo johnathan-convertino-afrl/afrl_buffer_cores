@@ -27,7 +27,7 @@ module tb_fifo;
   localparam CLK_PERIOD = 500;
   localparam RST_PERIOD = 1000;
   
-  util_axis_xfifo #(
+  axis_xfifo #(
     .FIFO_DEPTH(256),
     .COUNT_WIDTH(8),
     .BUS_WIDTH(1),

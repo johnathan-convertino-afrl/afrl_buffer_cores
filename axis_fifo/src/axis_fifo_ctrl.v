@@ -1,6 +1,6 @@
 // ***************************************************************************
 // ***************************************************************************
-// @FILE    util_axis_fifo_ctrl.v
+// @FILE    axis_fifo_ctrl.v
 // @AUTHOR  JAY CONVERTINO
 // @DATE    2021.06.29
 // @BRIEF   Control for packet mode and dealing with valid on read interface.
@@ -30,7 +30,7 @@
 
 `timescale 1ns/100ps
 
-module util_axis_fifo_ctrl #(
+module axis_fifo_ctrl #(
     parameter BUS_WIDTH  = 1,
     parameter FIFO_WIDTH = 8,
     parameter FIFO_POWER = 8,

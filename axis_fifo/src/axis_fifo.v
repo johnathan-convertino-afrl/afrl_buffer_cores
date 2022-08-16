@@ -1,6 +1,6 @@
 // ***************************************************************************
 // ***************************************************************************
-// @FILE    util_axis_fifo.v
+// @FILE    axis_fifo.v
 // @AUTHOR  JAY CONVERTINO
 // @DATE    2021.06.29
 // @BRIEF   Wraps util_fifo with an axi streaming interface.
@@ -30,7 +30,9 @@
 
 `timescale 1ns/100ps
 
-module util_axis_xfifo #(
+`include util_helper_math.vh
+
+module axis_xfifo #(
     parameter FIFO_DEPTH  = 256,
     parameter COUNT_WIDTH = 8,
     parameter BUS_WIDTH   = 1,
@@ -102,7 +104,7 @@ module util_axis_xfifo #(
   assign s_axis_concat_data[(USER_WIDTH-1+c_TUSER_OFFSET):c_TUSER_OFFSET]     = s_axis_tuser;
   assign s_axis_concat_data[c_TLAST_OFFSET]                                   = s_axis_tlast;
 
-  util_fifo #(
+  fifo #(
       .FIFO_DEPTH    (c_FIFO_DEPTH),
       .BYTE_WIDTH    (c_FIFO_WIDTH),
       .COUNT_WIDTH   (COUNT_WIDTH),
@@ -136,7 +138,7 @@ module util_axis_xfifo #(
       .data_count      (data_count)
     );
               
-   util_axis_fifo_ctrl #(
+   axis_fifo_ctrl #(
       .BUS_WIDTH  (BUS_WIDTH),
       .FIFO_WIDTH (c_FIFO_WIDTH),
       .USER_WIDTH (USER_WIDTH),
@@ -163,16 +165,5 @@ module util_axis_xfifo #(
       //write fifo
       .wr_full      (s_wr_full)
     );
-              
-  //copied from the IEEE 1364-2001 Standard
-  function integer clogb2;
-    input [31:0] value;
-    begin
-        value = value - 1;
-        for (clogb2 = 0; value > 0; clogb2 = clogb2 + 1) begin
-            value = value >> 1;
-        end
-    end
-  endfunction
-  
+
 endmodule
