@@ -27,7 +27,7 @@ module tb_fifo;
   localparam CLK_PERIOD = 500;
   localparam RST_PERIOD = 1000;
   
-  util_axis_tiny_fifo #(
+  axis_tiny_fifo #(
   ) dut (
     //axi streaming clock and reset.
     .aclk(tb_data_clk),

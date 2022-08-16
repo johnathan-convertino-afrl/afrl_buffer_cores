@@ -1,13 +1,15 @@
 CAPI=2:
 
-name: AFRL:buffer:util_axis_tiny_fifo:1.0.0
+name: AFRL:buffer:axis_tiny_fifo:1.0.0
 description: An axis fifo for very specific, and small applications only. Increasing the size of this will increase gate complexity exponentially.
 
 filesets:
   src:
     files:
-      - src/util_axis_tiny_fifo.v
+      - src/axis_tiny_fifo.v
     file_type: verilogSource
+    depend:
+      - AFRL:utility:util_helper:1.0.0
   
   tb:
     files:

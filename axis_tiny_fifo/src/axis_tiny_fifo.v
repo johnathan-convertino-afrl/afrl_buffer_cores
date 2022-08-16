@@ -1,6 +1,6 @@
 // ***************************************************************************
 // ***************************************************************************
-// @FILE    util_axis_tiny_fifo.v
+// @FILE    axis_tiny_fifo.v
 // @AUTHOR  JAY CONVERTINO
 // @DATE    2021.06.04
 // @BRIEF   AXIS TINY FIFO
@@ -34,8 +34,10 @@
 
 `timescale 1ns/100ps
 
+`include util_helper_math.vh
+
 //creating the smallest fifo possible
-module util_axis_tiny_fifo #(
+module axis_tiny_fifo #(
     parameter depth = 4,
     parameter width = 8
   )
@@ -94,16 +96,4 @@ module util_axis_tiny_fifo #(
       end
     end
   end
-  
-  //copied from the IEEE 1364-2001 Standard
-  function integer clogb2;
-    input [31:0] value;
-    begin
-        value = value - 1;
-        for (clogb2 = 0; value > 0; clogb2 = clogb2 + 1) begin
-            value = value >> 1;
-        end
-    end
-  endfunction
-  
 endmodule
