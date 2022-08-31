@@ -11,13 +11,15 @@ filesets:
       - src/fifo_mem.v
       - src/fifo_pipe.v
     file_type: verilogSource
-    depend:
-      - AFRL:utility:util_helper:1.0.0
   
   tb:
     files:
       - tb/tb_fifo.v
     file_type: verilogSource
+    
+  dep:
+    depend:
+      - AFRL:utility:helper:1.0.0
     
   vivado_constr:
     files:
@@ -26,10 +28,10 @@ filesets:
     
 targets:
   default:
-    filesets: [src]
+    filesets: [src, dep]
   
   sim:
     default_tool: icarus
-    filesets: [src, tb]
+    filesets: [src, tb, dep]
     toplevel: tb_fifo
     

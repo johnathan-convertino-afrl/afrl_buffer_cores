@@ -34,7 +34,7 @@
 
 `timescale 1ns/100ps
 
-`include util_helper_math.vh
+`include "util_helper_math.vh"
 
 //creating the smallest fifo possible
 module axis_tiny_fifo #(

@@ -30,7 +30,7 @@
 
 `timescale 1ns/100ps
 
-`include util_helper_math.vh
+`include "util_helper_math.vh"
 
 module axis_xfifo #(
     parameter FIFO_DEPTH  = 256,

@@ -9,21 +9,23 @@ filesets:
       - src/axis_fifo.v
       - src/axis_fifo_ctrl.v
     file_type: verilogSource
-    depend:
-      - AFRL:buffer:fifo
-      - AFRL:utility:util_helper:1.0.0
   
   tb:
     files:
       - tb/tb_fifo.v
     file_type: verilogSource
     
+  dep:
+    depend:
+      - AFRL:buffer:fifo
+      - AFRL:utility:helper:1.0.0
+    
 targets:
   default:
-    filesets: [src]
+    filesets: [src, dep]
   
   sim:
     default_tool: icarus
-    filesets: [src, tb]
+    filesets: [src, tb, dep]
     toplevel: tb_fifo
     
