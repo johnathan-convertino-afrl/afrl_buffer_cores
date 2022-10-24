@@ -1,5 +1,5 @@
 # AXIS FIFO
-## Fifo for AXI streaming
+## FIFO for AXI streaming
 ---
 
    author: Jay Convertino  
