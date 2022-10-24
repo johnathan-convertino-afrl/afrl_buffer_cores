@@ -35,6 +35,6 @@
 
 ##### git
 * If the library exists on github or some other git based service, use the following command to add the cores.
-* fusesoc library add afrl_buffer_cores https://github.com/johnathan-convertino-afrl/afrl_buffer_cores.git
+* user@host: fusesoc library add afrl_buffer_cores https://github.com/johnathan-convertino-afrl/afrl_buffer_cores.git
 
 
