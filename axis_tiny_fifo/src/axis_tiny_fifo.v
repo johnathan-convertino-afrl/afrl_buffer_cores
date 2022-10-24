@@ -34,8 +34,6 @@
 
 `timescale 1ns/100ps
 
-`include "util_helper_math.vh"
-
 //creating the smallest fifo possible
 module axis_tiny_fifo #(
     parameter depth = 4,
@@ -54,6 +52,8 @@ module axis_tiny_fifo #(
     input               s_axis_tvalid,
     output              s_axis_tready
   );
+  
+  `include "util_helper_math.vh"
   
   //index
   reg [clogb2(depth):0] index;

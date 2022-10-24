@@ -30,8 +30,6 @@
 
 `timescale 1ns/100ps
 
-`include "util_helper_math.vh"
-
 // FIFO that emulates Xilinx FIFO.
 module fifo #(
     parameter FIFO_DEPTH    = 256,
@@ -67,6 +65,8 @@ module fifo #(
     input data_count_rstn,
     output [COUNT_WIDTH:0] data_count
   );
+  
+  `include "util_helper_math.vh"
           
   // calculate widths
   localparam c_PWR_FIFO   = clogb2(FIFO_DEPTH); 

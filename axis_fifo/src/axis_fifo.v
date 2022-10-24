@@ -30,9 +30,7 @@
 
 `timescale 1ns/100ps
 
-`include "util_helper_math.vh"
-
-module axis_xfifo #(
+module axis_fifo #(
     parameter FIFO_DEPTH  = 256,
     parameter COUNT_WIDTH = 8,
     parameter BUS_WIDTH   = 1,
@@ -69,6 +67,8 @@ module axis_xfifo #(
     input  data_count_arstn,
     output [COUNT_WIDTH:0] data_count
   );
+  
+  `include "util_helper_math.vh"
           
   // break apart data from fifo into the axis signals.
   localparam c_ARRAY_LENGTH = DEST_WIDTH + USER_WIDTH + BUS_WIDTH + (BUS_WIDTH*8) + 1;

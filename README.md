@@ -13,7 +13,7 @@
 ---
 
 ### Dependencies
-* afrl_utility_cores:util_helper
+* afrl_utility_cores:util_helper_math
 
 ### Cores
 #### axis_fifo

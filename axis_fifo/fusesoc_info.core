@@ -12,7 +12,7 @@ filesets:
   
   tb:
     files:
-      - tb/tb_fifo.v
+      - tb/tb_axis.v
     file_type: verilogSource
     
   dep:
